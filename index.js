@@ -16,6 +16,10 @@ app.use(express.static('assets'));
 //use form data sent by post
 app.use(express.urlencoded());   
 
+app.get("*", (req, res) => {
+    res.status(500).send("Page not found");
+});
+
 //use the router
 app.use('/',require('./routes/index'));
 
